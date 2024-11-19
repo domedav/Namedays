@@ -34,7 +34,7 @@ class NotifierWorker(context: Context, workerParams: WorkerParameters) : Worker(
             .setContentTitle(context.getString(R.string.notification_sent_header))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setStyle(NotificationCompat.BigTextStyle().bigText(data))
-            .setSmallIcon(R.drawable.rounded_barefoot)
+            .setSmallIcon(R.drawable.logo_hollow_raw2_white)
             .build()
 
         println("Cancelling old notification and sending new one...")
