@@ -15,14 +15,24 @@ class NamedaysHelper {
             return date.get(ChronoField.DAY_OF_YEAR)
         }
 
-        @SuppressLint("DiscouragedApi")
-        fun getStringResource(context: Context): String {
-            val today = LocalDate.now(java.time.ZoneId.systemDefault())
+        fun getStringResource(context: Context, dayChange: Int = 0): String {
+            var today = LocalDate.now(java.time.ZoneId.systemDefault())
+            if(dayChange < 0){
+                today = today.minusDays((-dayChange).toLong())
+            }
+            else if(dayChange > 0){
+                today = today.plusDays(dayChange.toLong())
+            }
             val isLeapYear = isLeapYear(today.year)
             var dayOfYear = getDayOfYear(today)
             if (isLeapYear && dayOfYear > 55) {
                 dayOfYear -= 1
             }
+            return getStringResourceDated(context, isLeapYear, dayOfYear)
+        }
+
+        @SuppressLint("DiscouragedApi")
+        fun getStringResourceDated(context: Context, isLeapYear: Boolean, dayOfYear: Int): String{
             if(isLeapYear && dayOfYear == 55) {
                 return context.resources.getString(R.string.nameday_arr_item_leap)
             }

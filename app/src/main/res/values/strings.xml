@@ -3,9 +3,21 @@
 	
 	<string name="notification_channel_title">Névnap</string>
 	<string name="notification_channel_description">Minden nap értesít az aznapi névnapokról</string>
-	
 	<string name="notification_sent_header">Mai névnapok</string>
+	
 	<string name="nameday_display_header">Mai névnapok:</string>
+	<string name="nameday_display_header_shift_forward1">Holnapi névnapok:</string>
+	<string name="nameday_display_header_shift_forward2">Holnaputáni névnapok:</string>
+	<string name="nameday_display_header_shift_back1">Tegnapi névnapok:</string>
+	<string name="nameday_display_header_shift_back2">Tegnapelőtti névnapok:</string>
+	<string name="nameday_display_header_shift1">%s napon:</string>
+	
+	<string name="nameday_display_shifter_today">Ma</string>
+	<string name="nameday_display_shifter_back0">Tegnap</string>
+	<string name="nameday_display_shifter_forward0">Holnap</string>
+	<string name="nameday_display_shifter_back1">Tegnapelőtt</string>
+	<string name="nameday_display_shifter_forward1">Holnapután</string>
+	<string name="nameday_display_shifter_universal">%s nap</string>
 	
 	<string name="nameday_arr_item_leap">Szökőnap</string>
 	<string name="nameday_arr_item_1">Aglája, Algernon, Álmos, Bazil, Csoma, Csombor, Csomor, Eufrozina, Fruzsina, Konkordia, Odiló, Ruzsinka, Tóbiás, Vazul</string>

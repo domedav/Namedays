@@ -23,7 +23,7 @@ class NotifierWorker(context: Context, workerParams: WorkerParameters) : Worker(
 
     private fun fetchLocalData(): String {
         println("Obtaining current namedays string...")
-        return NamedaysHelper.getStringResource(this.applicationContext)
+        return NamedaysHelper.getStringResource(this.applicationContext, 0)
     }
 
     private fun sendNotification(data: String, context: Context) {

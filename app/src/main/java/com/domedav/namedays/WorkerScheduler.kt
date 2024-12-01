@@ -1,5 +1,7 @@
 package com.domedav.namedays
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
@@ -9,6 +11,7 @@ import java.util.concurrent.TimeUnit
 class WorkerScheduler{
     companion object{
         fun scheduleDailyWork(context: Context){
+            createNotificationChannel(context)
             val currentTime = Calendar.getInstance()
             val targetTime = Calendar.getInstance()
 
@@ -34,6 +37,19 @@ class WorkerScheduler{
             println("Cancelled all owned active workers")
             WorkManager.getInstance(context).enqueue(periodicWorkRequest)
             println("Set up our worker!")
+        }
+        private fun createNotificationChannel(context: Context) {
+            val channelId = NotifierWorker.CHANNEL_ID
+            val channelName = context.getString(R.string.notification_channel_title)
+            val channelDescription = context.getString(R.string.notification_channel_description)
+            val importance = NotificationManager.IMPORTANCE_LOW
+
+            val channel = NotificationChannel(channelId, channelName, importance).apply {
+                description = channelDescription
+            }
+
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
 }
